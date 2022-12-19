@@ -22,13 +22,13 @@ class WakalasScreen extends StatelessWidget{
         itemCount: numberOfWakalas,
         itemBuilder: (BuildContext context, int index) {
           Wakala wakala = wakalaProvider.listOfWakalas[index];
-          return getContainerItem(wakala);
+          return getContainerItem(context,wakala);
         }
       ),
     );
   }
 
-  Container getContainerItem(Wakala wakala){
+  Container getContainerItem(BuildContext context , Wakala wakala){
     return Container(
       margin: const EdgeInsets.all(30.0),
       padding: const EdgeInsets.all(20.0),
@@ -44,6 +44,7 @@ class WakalasScreen extends StatelessWidget{
       child: InkWell(
         onTap: () {
           log('Has hecho click en ${wakala.sector}');
+          getCompleteWakalaInfo(context,wakala);
         },
 
         child: Column(
@@ -74,6 +75,14 @@ class WakalasScreen extends StatelessWidget{
           ],
         ),
       ),
+    );
+  }
+
+  void getCompleteWakalaInfo(BuildContext context, Wakala wakala){
+    Navigator.pushNamed(
+      context,
+      '/wakalaScreen',
+      arguments: wakala
     );
   }
 

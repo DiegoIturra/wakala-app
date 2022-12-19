@@ -4,6 +4,7 @@ import 'package:wakala_app/providers/login_form_provider.dart';
 import 'package:wakala_app/providers/wakala_provider.dart';
 import 'package:wakala_app/screens/login_screen.dart';
 import 'package:wakala_app/screens/register_screen.dart';
+import 'package:wakala_app/screens/wakala_screen.dart';
 import 'package:wakala_app/screens/wakalas_screen.dart';
 import 'package:wakala_app/services/auth_service.dart';
 
@@ -22,9 +23,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.indigo),
       initialRoute: '/login',
       routes: {
-        '/home': (context) => const WakalasScreen(),
-        '/register': (context) => const RegisterScreen(),
-        '/login': (context) => const LoginScreen(),
+        '/home':         (context) => const WakalasScreen(),
+        '/register':     (context) => const RegisterScreen(),
+        '/login':        (context) => const LoginScreen(),
+        '/wakalaScreen': (context) => WakalaScreen(),
       },
     );
   }

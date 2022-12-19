@@ -24,6 +24,7 @@ class WakalaProvider extends ChangeNotifier{
     if(response.statusCode == 200){
       listOfWakalas = _parseWakalas(response.body);
     }
+    notifyListeners();
   }
 
 }
