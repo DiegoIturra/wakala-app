@@ -1,0 +1,4 @@
+enum status{
+  LOGIN_ERROR,
+  LOGIN_SUCCESFUL
+}

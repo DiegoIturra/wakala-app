@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wakala_app/common/status.dart';
 import 'package:wakala_app/design/input_decorations.dart';
 import 'package:wakala_app/providers/login_form_provider.dart';
 import 'package:wakala_app/services/auth_service.dart';
@@ -50,6 +51,7 @@ class _LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final loginForm = Provider.of<LoginFormProvider>(context);
+    
     return Form(
       key: loginForm.formKey,
       child: Column(
@@ -112,9 +114,9 @@ class _LoginForm extends StatelessWidget {
                     loginForm.isLoading = true;
                     await Future.delayed(const Duration(seconds: 2));
 
-                    final String? errorMessage = await authService.login(loginForm.email, loginForm.password);
-
-                    if (errorMessage == null) {
+                    final String? loginResponse = await authService.login(loginForm.email, loginForm.password);
+                    
+                    if (loginResponse == status.LOGIN_SUCCESFUL.toString()) {
                       // ignore: use_build_context_synchronously
                       Navigator.pushReplacementNamed(context, '/home');
                     } else {

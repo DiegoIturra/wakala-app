@@ -9,6 +9,6 @@ class NotificationsService {
       duration: const Duration(seconds: 5),
     );
 
-    messengerKey.currentState!.showSnackBar(snackbar);
+    messengerKey.currentState?.showSnackBar(snackbar);
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wakala_app/providers/login_form_provider.dart';
+import 'package:wakala_app/providers/wakala_provider.dart';
 import 'package:wakala_app/screens/login_screen.dart';
 import 'package:wakala_app/screens/register_screen.dart';
 import 'package:wakala_app/screens/wakalas_screen.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.indigo),
       initialRoute: '/login',
       routes: {
-        '/home': (context) => WakalasScreen(),
+        '/home': (context) => const WakalasScreen(),
         '/register': (context) => const RegisterScreen(),
         '/login': (context) => const LoginScreen(),
       },
@@ -38,6 +39,7 @@ class AppState extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => LoginFormProvider()),
         ChangeNotifierProvider(create: (_) => AuthService()),
+        ChangeNotifierProvider(create: (_) => WakalaProvider())
       ],
       child: const MyApp(),
     );
